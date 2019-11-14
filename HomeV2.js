@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Dimensions,
   Button,
-  TextInput
+  TextInput,
+  TouchableHighlight
 } from 'react-native';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import { createAppContainer } from 'react-navigation';
@@ -70,10 +71,10 @@ export default class HomeV2 extends Component{
         return value
       }
       else {
-        this.setState({user_name: 'Edit Status Here'})
+        this.setState({user_name: 'Edit status here...'})
       }
     } catch(e) {
-      this.setState({user_name: 'Edit Status Here'})
+      this.setState({user_name: 'Edit status here...'})
     }
   }
 
@@ -89,16 +90,16 @@ export default class HomeV2 extends Component{
     return(
       <SlidingUpPanel
         ref={c => (this._panel = c)}
-        draggableRange={{top: height-30, bottom: 120}}
+        draggableRange={{top: height-30, bottom: 100}}
         animatedValue={this._draggedValue}
-        snappingPoints = {[120, height-30]}
+        snappingPoints = {[100, height-30]}
         showBackdrop={true}>
         <View style={styles.panel}>
           <View style={styles.panelHeader}>
             <View style = {styles.slider}></View>
-            <View style = {{marginRight: 200}}>
+            <View style = {{marginRight: 'auto'}}>
                 <TextInput
-                      style = {{color: '#C4820F', fontSize: 24, fontFamily: 'sans-serif-light'}}
+                      style = {styles.status}
                       onChangeText={text => {
                         this.setState({user_name: text});
                         this.storeName(text);
@@ -108,10 +109,25 @@ export default class HomeV2 extends Component{
             </View>
           </View>
           <View style={styles.container}>
-            <View style = {{flexDirection: 'row'}}>
-              <Button title = 'Libraries' onPress = {() => NavigationService.navigate('Libraries')} />
-              <Button title = 'DiningHalls' onPress = {() => NavigationService.navigate('DiningHalls')} />
-              <Button title = 'Gyms' onPress = {() => NavigationService.navigate('Gyms')} />
+            <View style = {{flexDirection: 'row', justifyContent: "space-around"}}>
+              <TouchableHighlight
+                style={styles.campusScreens}
+                onPress = {() => NavigationService.navigate('Libraries')}
+                underlayColor={styles.campusScreens.backgroundColor}>
+                  <Text style={styles.campusText}>Libraries</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={styles.campusScreens}
+                onPress = {() => NavigationService.navigate('DiningHalls')}
+                underlayColor={styles.campusScreens.backgroundColor}>
+                  <Text style={styles.campusText}>Dining</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={styles.campusScreens}
+                onPress = {() => NavigationService.navigate('Gyms')}
+                underlayColor={styles.campusScreens.backgroundColor}>
+                  <Text style={styles.campusText}>Fitness</Text>
+              </TouchableHighlight>
             </View>
             <View style = {{flex: 1, zIndex: 5005}}>
               <CampusContainer style = {{zIndex: 5000}} ref={navigatorRef => {
@@ -139,7 +155,7 @@ const styles = StyleSheet.create({
    position: 'relative'
  },
  panelHeader: {
-   height: 120,
+   height: 100,
    backgroundColor: '#003262',
    color: '#C4820F',
    borderTopRightRadius: 50,
@@ -151,5 +167,21 @@ const styles = StyleSheet.create({
    height: 5,
    width: 30,
    backgroundColor: 'white',
+   borderRadius: 20,
+ },
+ campusScreens:{
+   marginRight: 40,
+   marginLeft: 40,
+   marginTop: 10,
+   paddingTop: 20,
+   paddingBottom: 20,
+   backgroundColor: '#f8f9fa',
+ },
+ status: {
+   color: '#C4820F',
+   fontSize: 24,
+   paddingLeft: 30,
+   fontFamily: 'sans-serif-light',
+   letterSpacing: 3,
  }
 })

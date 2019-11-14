@@ -28,7 +28,7 @@ export default class Home extends Component{
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar hidden/>
+        <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
         <Map location = {this.state.location ? this.state.location.coords : {longitude: -122.2578, latitude: 37.8721}}/>
         <HomeV2 />
       </View>
