@@ -14,7 +14,7 @@ export default class Libraries extends Component{
             <Image style = {styles.bookIcon} source={{uri: 'https://image.flaticon.com/icons/png/512/130/130304.png'}}/>
             <Text style = {styles.heading}>Find your study spot</Text>
           </View>
-          <View style = {styles.cardsContainer}>
+          <View style = {styles.cardDeck}>
             {libraryData.map((prop, key) => {
               return (
                 <LibraryCard style={styles.card}  key={key} data = {prop}/>
@@ -52,11 +52,12 @@ const styles = StyleSheet.create({
     height: 30,
     marginRight: 20
   },
-  cardsContainer: {
+  cardDeck: {
     marginTop: 40,
   },
   heading: {
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    letterSpacing: 1.1,
   }
 })

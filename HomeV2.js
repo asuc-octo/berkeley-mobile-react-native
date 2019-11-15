@@ -94,8 +94,9 @@ export default class HomeV2 extends Component{
         animatedValue={this._draggedValue}
         snappingPoints = {[100, height-30]}
         showBackdrop={true}>
+        {dragHandler => (
         <View style={styles.panel}>
-          <View style={styles.panelHeader}>
+          <View style={styles.panelHeader} {...dragHandler}>
             <View style = {styles.slider}></View>
             <View style = {{marginRight: 'auto'}}>
                 <TextInput
@@ -135,7 +136,7 @@ export default class HomeV2 extends Component{
               }}/>
             </View>
           </View>
-        </View>
+        </View>)}
       </SlidingUpPanel>
     );
   }

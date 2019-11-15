@@ -34,4 +34,11 @@
     "image": "http://www.lib.berkeley.edu/sites/default/files/music_library_0.jpg",
     "occupancy": "Low"
   },
+  {
+    "name": "Kresge Engineering Library",
+    "latitude": "37.8742",
+    "longitude": "-122.2582",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/engineering_library_0.jpg",
+    "occupancy": "Low"
+  },
 ]
