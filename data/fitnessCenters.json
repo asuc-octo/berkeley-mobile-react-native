@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Recreational Sports Facility",
+    "latitude": "37.8687",
+    "longitude": "-122.2624",
+    "image": "http://recsports.berkeley.edu/wp-content/uploads/2016/06/Float-Resources-Facilities-RSF.jpg",
+    "occupancy": "High"
+  },
+  {
+    "name": "Memorial Stadium",
+    "latitude": "37.8707",
+    "longitude": "-122.2508",
+    "image": "http://recsports.berkeley.edu/wp-content/uploads/2016/06/Float-Resources-Facilities-Stadium-Fitness-Center.jpg",
+    "occupancy": "Medium"
+  },
+  {
+    "name": "Golden Bear Rec Center",
+    "latitude": "37.8654",
+    "longitude": "-122.2472",
+    "image": "http://recsports.berkeley.edu/wp-content/uploads/2016/06/Float-Resources-Facilities-Golden-Bear-Pool.jpg",
+    "occupancy": "Low"
+  },
+  {
+    "name": "Hearst Gym",
+    "latitude": "37.8697",
+    "longitude": "-122.2569",
+    "image": "http://recsports.berkeley.edu/wp-content/uploads/2016/06/Float-Resources-Facilities-Hearst-Pool.jpg",
+    "occupancy": "Low"
+  },
+]

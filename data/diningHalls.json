@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Crossroads",
+    "latitude": "37.8670",
+    "longitude": "-122.2562",
+    "image": "https://caldining.berkeley.edu/sites/default/files/images/graphics/Crossroads-100.jpg",
+    "occupancy": "High"
+  },
+  {
+    "name": "Clark Kerr",
+    "latitude": "37.8642",
+    "longitude": "-122.2489",
+    "image": "https://caldining.berkeley.edu/sites/default/files/images/graphics/ck2-100.jpg",
+    "occupancy": "Medium"
+  },
+  {
+    "name": "Golden Bear Cafe",
+    "latitude": "37.8698",
+    "longitude": "-122.2596",
+    "image": "https://i1.wp.com/www.dailycal.org/assets/uploads/2015/08/gbc_jkimsanders-900x580.jpg",
+    "occupancy": "Medium"
+  },
+  {
+    "name": "Cafe 3",
+    "latitude": "37.8672",
+    "longitude": "-122.2604",
+    "image": "https://caldining.berkeley.edu/sites/default/files/images/graphics/c31-100.jpg",
+    "occupancy": "Medium"
+  },
+  {
+    "name": "Browns Cafe",
+    "latitude": "37.8733",
+    "longitude": "-122.2649",
+    "image": "http://i1.wp.com/www.dailycal.org/assets/uploads/2015/11/browns-900x675.jpg",
+    "occupancy": "Low"
+  },
+]

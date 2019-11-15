@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {ScrollView} from 'react-native';
+import Locations from './Locations';
 
-export default class Gym extends Component{
+const locationData = require('./data/fitnessCenters.json')
+
+export default class Gyms extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return(
-      <View style = {styles.container}>
-        <Text>Gym Screen</Text>
-      </View>
+      <ScrollView  contentContainerStyle={{flexGrow: 1, justifyContent: "center"}}>
+        <Locations heading = {"Fitness Centers"} data = {locationData} iconImage = {"https://image.flaticon.com/icons/png/512/130/130304.png"} />
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})

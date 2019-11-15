@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {ScrollView} from 'react-native';
+import Locations from './Locations';
+
+const locationData = require('./data/diningHalls.json')
 
 export default class DiningHalls extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return(
-      <View style = {styles.container}>
-        <Text>Dining Halls Screen</Text>
-      </View>
+      <ScrollView  contentContainerStyle={{flexGrow: 1, justifyContent: "center"}}>
+        <Locations heading = {"Hello u need food"} data = {locationData} iconImage = {"https://image.flaticon.com/icons/png/512/130/130304.png"} />
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})

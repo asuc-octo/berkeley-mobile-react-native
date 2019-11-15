@@ -38,12 +38,12 @@ const CampusStack = createAnimatedSwitchNavigator(
       <Transition.Together>
         <Transition.Out
           type="slide-left"
-          durationMs={800}
+          durationMs={500}
           interpolation="linear"
         />
         <Transition.In
           type="slide-right"
-          durationMs={300}
+          durationMs={500}
         />
       </Transition.Together>
     ),
