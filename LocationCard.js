@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 
 
-export default class LibraryCard extends Component {
+export default class LocationCard extends Component {
   constructor(props) {
     super(props);
 
@@ -50,8 +50,8 @@ export default class LibraryCard extends Component {
     return(
       <View style = {styles.container}>
         <View style = {{flex: 2}}>
-          <Text style = {[{fontSize: (20 > this.props.data.name.length ? 15: 10)}, styles.libraryName]}>{this.props.data.name}</Text>
-          <View style = {styles.libraryInfo}>
+          <Text style = {[{fontSize: (20 > this.props.data.name.length ? 15: 10)}, styles.locationName]}>{this.props.data.name}</Text>
+          <View style = {styles.detInfo}>
             <Image
               style = {{width: 20, height: 30}}
               source = {{uri: "https://cdn3.iconfinder.com/data/icons/vehicles-and-transportation-icon-set/434/walking-simple-black-icon-512.png"}}
@@ -62,11 +62,11 @@ export default class LibraryCard extends Component {
               source = {{uri: "https://static.thenounproject.com/png/1214872-200.png"}}
             />
             <View style = {{borderRadius: 100, backgroundColor: this.occupancyColor[this.props.data.occupancy]}}>
-              <Text style = {styles.libraryOccupancy}>{this.props.data.occupancy}</Text>
+              <Text style = {styles.occupancy}>{this.props.data.occupancy}</Text>
             </View>
           </View>
         </View>
-        <Image style = {styles.libraryImage} source = {{uri: this.props.data.image}}/>
+        <Image style = {styles.locationImage} source = {{uri: this.props.data.image}}/>
       </View>
     );
   }
@@ -84,20 +84,20 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
 
   },
-  libraryName: {
+  locationName: {
     flex: 2,
     paddingLeft: 15,
     paddingTop: 20,
     fontWeight: 'bold',
     letterSpacing: 1.2
   },
-  libraryImage: {
+  locationImage: {
     borderRadius: 10,
     height: 80,
     marginRight: 5,
     width: 100,
   },
-  libraryInfo: {
+  detInfo: {
     flexDirection: 'row',
     flex: 1,
     width: '90%',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     marginLeft: 6,
   },
-  libraryOccupancy: {
+  occupancy: {
     padding: 4,
     paddingLeft: 10,
     paddingRight: 10,

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button, ScrollView, Image, FlatList} from 'react-native';
 
-import LibraryCard from './libraryCard.js';
+import LocationCard from './LocationCard.js';
 
 const libraryData = require('./data/libraries.json')
 
@@ -17,7 +17,7 @@ export default class Libraries extends Component{
           <View style = {styles.cardDeck}>
             {libraryData.map((prop, key) => {
               return (
-                <LibraryCard style={styles.card}  key={key} data = {prop}/>
+                <LocationCard style={styles.card}  key={key} data = {prop}/>
               );
             })}
           </View>
