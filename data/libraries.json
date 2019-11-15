@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Moffit Library",
+    "latitude": "37.8726",
+    "longitude": "-122.2607",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg",
+    "occupancy": "High"
+  },
+  {
+    "name": "Doe Library",
+    "latitude": "37.8722",
+    "longitude": "-122.2596",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/doe_library_4.jpg",
+    "occupancy": "Medium"
+  },
+  {
+    "name": "East Asian Library",
+    "latitude": "37.8735",
+    "longitude": "-122.2605",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/east_asian_library_0.jpg",
+    "occupancy": "Low"
+  },
+  {
+    "name": "Bancroft Library",
+    "latitude": "37.8723",
+    "longitude": "-122.2589",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/bancroft_library_3.jpg",
+    "occupancy": "Low"
+  },
+  {
+    "name": "Music Library",
+    "latitude": "37.8704",
+    "longitude": "-122.2562",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/music_library_0.jpg",
+    "occupancy": "Low"
+  },
+]

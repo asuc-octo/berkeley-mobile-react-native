@@ -108,7 +108,7 @@ export default class HomeV2 extends Component{
                     />
             </View>
           </View>
-          <View style={styles.container}>
+          <View style={[styles.container, {backgroundColor: '#f0eee4'}]}>
             <View style = {{flexDirection: 'row', justifyContent: "space-around"}}>
               <TouchableHighlight
                 style={styles.campusScreens}
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
    marginTop: 10,
    paddingTop: 20,
    paddingBottom: 20,
-   backgroundColor: '#f8f9fa',
+   backgroundColor: '#f0eee4',
  },
  status: {
    color: '#C4820F',
