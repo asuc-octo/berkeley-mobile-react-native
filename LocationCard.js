@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
-import Geolocation from '@react-native-community/geolocation';
+import {View, Text, Image, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 
 
 export default class LocationCard extends Component {
   constructor(props) {
     super(props);
 
-    this.distance = this.distance.bind(this)
-    this.getUserLocation = this.getUserLocation.bind(this)
-
-    this.getUserLocation()
     this.state = {};
   }
 
@@ -20,31 +15,6 @@ export default class LocationCard extends Component {
     'Low': '#55db16'
   }
 
-  getUserLocation = () => {
-    Geolocation.getCurrentPosition(location => this.setState({ lat: location.coords.latitude, long: location.coords.longitude }));
-  }
-
-  distance = (lat1, lon1) => {
-    let lat2 = this.state.lat
-    let lon2 = this.state.long
-  	if ((lat1 == lat2) && (lon1 == lon2)) {
-  		return 0;
-  	}
-  	else {
-  		var radlat1 = Math.PI * lat1/180;
-  		var radlat2 = Math.PI * lat2/180;
-  		var theta = lon1-lon2;
-  		var radtheta = Math.PI * theta/180;
-  		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-  		if (dist > 1) {
-  			dist = 1;
-  		}
-  		dist = Math.acos(dist);
-  		dist = dist * 180/Math.PI;
-  		dist = dist * 60 * 1.1515;
-  		return Math.round(dist / 0.05167);
-  	}
-  };
 
   render() {
     return(
@@ -56,14 +26,18 @@ export default class LocationCard extends Component {
               style = {{width: 20, height: 30}}
               source = {{uri: "https://cdn3.iconfinder.com/data/icons/vehicles-and-transportation-icon-set/434/walking-simple-black-icon-512.png"}}
             />
-            <Text style = {{color: 'grey'}}>{this.distance(this.props.data.latitude, this.props.data.longitude)} min</Text>
+            <TouchableWithoutFeedback onPress={() => this.props.sortDistance()}>
+                <Text style = {{color: 'grey'}}>{Math.round(this.props.data.distance)} min</Text>
+            </TouchableWithoutFeedback>
             <Image
               style = {{marginLeft: 10, width: 25, height: 30}}
               source = {{uri: "https://static.thenounproject.com/png/1214872-200.png"}}
             />
-            <View style = {{borderRadius: 100, backgroundColor: this.occupancyColor[this.props.data.occupancy]}}>
-              <Text style = {styles.occupancy}>{this.props.data.occupancy}</Text>
-            </View>
+            <TouchableWithoutFeedback onPress={() => this.props.sortOccupancy()}>
+                <View style = {{borderRadius: 100, backgroundColor: this.occupancyColor[this.props.data.occupancy]}}>
+                  <Text style = {styles.occupancy}>{this.props.data.occupancy}</Text>
+                </View>
+            </TouchableWithoutFeedback>
           </View>
         </View>
         <Image style = {styles.locationImage} source = {{uri: this.props.data.image}}/>

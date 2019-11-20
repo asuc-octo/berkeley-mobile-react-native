@@ -1,14 +1,93 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
+
 
 import LocationCard from './LocationCard';
 
 export default class Locations extends Component{
+
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {filters: this.props.filters, data: this.props.data }
+
+    this.addDistance = this.addDistance.bind(this);
+    this.sortDataByDistance = this.sortDataByDistance.bind(this)
+    this.sortDataByOccupancy = this.sortDataByOccupancy.bind(this)
+    this.filterData = this.filterData.bind(this)
+
+    this.addDistance();
   }
+
+  addDistance = () => {
+    distance = (lat1, lon1, lat2, lon2) => {
+      if ((lat1 == lat2) && (lon1 == lon2)) {
+        return 0;
+      }
+      else {
+        var radlat1 = Math.PI * lat1/180;
+        var radlat2 = Math.PI * lat2/180;
+        var theta = lon1-lon2;
+        var radtheta = Math.PI * theta/180;
+        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        if (dist > 1) {
+          dist = 1;
+        }
+        dist = Math.acos(dist);
+        dist = dist * 180/Math.PI;
+        dist = dist * 60 * 1.1515;
+        return dist / 0.05167;
+      }
+    };
+
+    Geolocation.getCurrentPosition(location => {
+      this.props.data.map(element => {
+        element.distance = distance(element.latitude, element.longitude, location.coords.latitude, location.coords.longitude)
+        return element
+      })
+      this.setState({data: this.props.data })
+      this.sortDataByDistance()
+    });
+  }
+
+  sortDataByDistance = () => {
+    let getDistanceCompare = (a, b) => {
+      let occupancyNumbers = {"High": 1, "Medium": 2, "Low": 3}
+      if(a.distance == b.distance) {
+        return occupancyNumbers[a.occupancy] < occupancyNumbers[b.occupancy] ? 1 : -1
+      }
+      else {
+        return a.distance > b.distance ? 1 : -1
+      }
+    }
+
+    this.setState({data: this.state.data.sort((a, b) => getDistanceCompare(a,b) )})
+  }
+
+  sortDataByOccupancy = () => {
+    let getOccupancyCompare = (a, b) => {
+      let occupancyNumbers = {"High": 1, "Medium": 2, "Low": 3}
+      if(occupancyNumbers[a.occupancy] == occupancyNumbers[b.occupancy]) {
+        return a.distance > b.distance ? 1 : -1
+      }
+      else {
+        return occupancyNumbers[a.occupancy] < occupancyNumbers[b.occupancy] ? 1 : -1
+      }
+    }
+    this.setState({data: this.state.data.sort((a, b) => getOccupancyCompare(a,b))})
+  }
+
+  toggleFilter = (filterKey) => {
+    this.state.filters[filterKey].toggle = !this.state.filters[filterKey].toggle
+    // this.setState({filters: this.state.filters}) //update view
+    this.filterData()
+  }
+
+  filterData = () => {
+
+  }
+
 
   render() {
     return(
@@ -18,9 +97,9 @@ export default class Locations extends Component{
             <Text style = {styles.heading}>{this.props.heading}</Text>
           </View>
           <View style = {styles.cardDeck}>
-            {this.props.data.map((prop, key) => {
+            {this.state.data.map((prop, key) => {
               return (
-                <LocationCard style={styles.card}  key={key} data = {prop}/>
+                <LocationCard style={styles.card} sortDistance = {this.sortDataByDistance} sortOccupancy = {this.sortDataByOccupancy} key={key} data = {prop}/>
               );
             })}
           </View>
@@ -31,12 +110,9 @@ export default class Locations extends Component{
 
 const styles = StyleSheet.create({
   infoContainer: {
-    // height: 600,
     width: "80%",
     backgroundColor: "#f6f4f1",
     borderRadius: 25,
-    // position: "absolute",
-    // right: "10%",
     marginTop: 10,
     padding: 20,
     marginLeft: "9%",
