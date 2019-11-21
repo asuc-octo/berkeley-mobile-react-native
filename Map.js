@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, TextInput} from 'react-native';
+import {View, StyleSheet, Text, TextInput, TouchableWithoutFeedback, ScrollView} from 'react-native';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 
@@ -8,7 +8,26 @@ export default class Map extends Component{
   constructor(props) {
     super(props);
 
-    this.state = {destination: "Where to?"};
+
+    this.handleCollapse = this.handleCollapse.bind(this)
+    this.state = {destination: "Where to?", expandPoints: false}
+    this.interestOptions = (
+      ['water', 'microwaves', 'printer', 'nap', 'food', 'student services', 'academic advising'].map((prop,key) => {
+        return (
+          <TouchableWithoutFeedback key = {key}>
+            <View style = {styles.pointsLabel}>
+              <Text style = {{paddingLeft: 10, paddingRight: 10, paddingTop: 3, paddingBottom: 5, color: "black"}}>{prop}</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        )
+    }));
+  }
+
+  handleCollapse() {
+    console.log(this.interestOptions);
+    this.setState((prevState) => ({
+      expandPoints: !prevState.expandPoints
+    }))
   }
 
   render(){
@@ -41,6 +60,17 @@ export default class Map extends Component{
                 value={this.state.destination}
               />
        </View>
+
+       <View style = {styles.pointsOfInterest}>
+          <ScrollView horizontal alwaysBounceHorizontal>
+            <TouchableWithoutFeedback onPress = {this.handleCollapse}>
+                <View style = {styles.pointsLabelHeader}>
+                  <Text style = {{paddingLeft: 10, paddingRight: 10, paddingTop: 3, paddingBottom: 5, color: "#f5f5f5"}}>Points of Interest ></Text>
+                </View>
+            </TouchableWithoutFeedback>
+            {this.state.expandPoints ? this.interestOptions: <></>}
+          </ScrollView>
+       </View>
      </View>
    )
   }
@@ -63,6 +93,26 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 25,
   },
+  pointsOfInterest: {
+    position: "absolute",
+    top: 150,
+    height: "3%",
+    width: "100%",
+  },
+  pointsLabelHeader: {
+    height: "100%",
+    borderRadius: 25,
+    backgroundColor: "#0000ff",
+    alignSelf: 'flex-start',
+    marginLeft: 10
+  },
+  pointsLabel: {
+    height: "100%",
+    borderRadius: 25,
+    backgroundColor: "white",
+    alignSelf: 'flex-start',
+    marginLeft: 10
+  }
 })
 
 const inTransit = StyleSheet.create({
