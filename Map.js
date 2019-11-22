@@ -24,7 +24,6 @@ export default class Map extends Component{
   }
 
   handleCollapse() {
-    console.log(this.interestOptions);
     this.setState((prevState) => ({
       expandPoints: !prevState.expandPoints
     }))
