@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
    backgroundColor: 'rgb(250,250,250)',
    borderTopRightRadius: 55,
    borderTopLeftRadius: 55,
-   position: 'relative'
+   position: 'relative',
  },
  panelHeader: {
    height: 100,
