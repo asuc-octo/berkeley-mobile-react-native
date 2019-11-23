@@ -12,16 +12,26 @@ export default class Map extends Component{
     this.handleCollapse = this.handleCollapse.bind(this)
     this.state = {destination: "Where to?", expandPoints: false}
     this.interestOptions = (
-      ['water', 'microwaves', 'printer', 'nap', 'food', 'student services', 'academic advising'].map((prop,key) => {
+      ['water', 'microwaves', 'printer', 'nap', 'food', 'student services', 'advising'].map((prop,key) => {
         return (
           <TouchableWithoutFeedback key = {key}>
             <View style = {styles.pointsLabel}>
-              <Text style = {{paddingLeft: 10, paddingRight: 10, paddingTop: 3, paddingBottom: 5, color: "black"}}>{prop}</Text>
+              <Text style = {{fontSize: 12, fontWeight: 'bold', color: this.getRandomColor()}}>{prop}</Text>
             </View>
           </TouchableWithoutFeedback>
         )
     }));
   }
+
+  getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
 
   handleCollapse() {
     this.setState((prevState) => ({
@@ -36,8 +46,6 @@ export default class Map extends Component{
          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
          style={styles.map}
          showsUserLocation = {true}
-         followsUserLocation = {true}
-         showMyLocationButton = {true}
          region={{
            latitude: this.props.location.latitude,
            longitude: this.props.location.longitude,
@@ -64,7 +72,7 @@ export default class Map extends Component{
           <ScrollView horizontal alwaysBounceHorizontal>
             <TouchableWithoutFeedback onPress = {this.handleCollapse}>
                 <View style = {styles.pointsLabelHeader}>
-                  <Text style = {{paddingLeft: 10, paddingRight: 10, paddingTop: 3, paddingBottom: 5, color: "#f5f5f5"}}>Points of Interest ></Text>
+                  <Text style = {{color: "rgb(255,255,255)", fontSize: 12, fontWeight: "bold"}}>{this.state.expandPoints ? "Points of Interest <" : "Points of Interest >"}</Text>
                 </View>
             </TouchableWithoutFeedback>
             {this.state.expandPoints ? this.interestOptions: <></>}
@@ -87,30 +95,36 @@ const styles = StyleSheet.create({
   transit: {
     position: "absolute",
     top: 50,
-    height: "10%",
-    width: "70%",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 25,
+    height: "13%",
+    width: "88%",
+    backgroundColor: "rgb(255,255,255)",
+    borderRadius: 21.5,
   },
   pointsOfInterest: {
     position: "absolute",
-    top: 150,
-    height: "3%",
+    top: 170,
+    height: "3.13%",
     width: "100%",
   },
   pointsLabelHeader: {
     height: "100%",
-    borderRadius: 25,
-    backgroundColor: "#0000ff",
-    alignSelf: 'flex-start',
-    marginLeft: 10
+    borderRadius: 21.5,
+    backgroundColor: "rgb(106,145,255)",
+    marginLeft: 25,
+    width: 156,
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: 89
   },
   pointsLabel: {
     height: "100%",
-    borderRadius: 25,
+    borderRadius: 21.5,
+    width: 107,
+    opacity: 0.89,
     backgroundColor: "white",
-    alignSelf: 'flex-start',
-    marginLeft: 10
+    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 })
 
@@ -118,51 +132,50 @@ const inTransit = StyleSheet.create({
   topCircle: {
     position: "absolute",
     top: "22%",
-    left: "8.2%",
-    height: 12.5,
-    width: 12.5,
+    left: "6.0%",
+    height: 11,
+    width: 11,
     backgroundColor: "#ADD8E6",
     borderRadius: 100,
   },
   bottomCircle: {
     position: "absolute",
     top: "62%",
-    left: "8.2%",
-    height: 12.5,
-    width: 12.5,
+    left: "6.0%",
+    height: 11,
+    width: 11,
     backgroundColor: "#00008B",
     borderRadius: 100,
   },
   line: {
     position: "absolute",
-    left: "10%",
+    left: "7.3%",
     top: "30%",
     borderLeftColor: 'black',
     borderLeftWidth: 1,
-    height: "40%",
+    height: "36%",
   },
   horizontalLine: {
     position: "absolute",
-    left: "20%",
-    top: "55%",
+    left: "14.5%",
+    top: "48%",
     borderBottomColor: 'black',
     borderBottomWidth: StyleSheet.hairlineWidth,
     width: "75%",
   },
   originText: {
     position: "absolute",
-    left: "20%",
-    top: "28%",
-    fontSize: 10,
-    fontWeight: "100",
-    color: "#808080",
-    letterSpacing: 1.2,
+    left: "14.5%",
+    top: "22%",
+    color: "rgb(44,44,45)",
+    fontSize: 14,
+    opacity: 0.71
   },
   destinationText: {
     position: "absolute",
-    left: "19%",
+    left: "13.9%",
     top: "44%",
-    fontSize: 10,
-    letterSpacing: 1.1,
+    color: "rgb(44,44,45)",
+    fontSize: 14,
   },
 })

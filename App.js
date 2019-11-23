@@ -54,7 +54,7 @@ const TabApp = createAppContainer(createMaterialTopTabNavigator(
       showIcon: true,
       showLabel: false,
       style: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
       }
     }
   }

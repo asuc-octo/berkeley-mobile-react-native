@@ -90,9 +90,10 @@ export default class HomeV2 extends Component{
     return(
       <SlidingUpPanel
         ref={c => (this._panel = c)}
-        draggableRange={{top: height-30, bottom: 100}}
+        draggableRange={{top: height, bottom: 100}}
         animatedValue={this._draggedValue}
-        snappingPoints = {[100, height-30]}
+        snappingPoints = {[100, height]}
+        height={height}
         showBackdrop={true}>
         {dragHandler => (
         <View style={styles.panel}>
@@ -105,11 +106,13 @@ export default class HomeV2 extends Component{
                         this.setState({user_name: text});
                         this.storeName(text);
                       }}
+                      spellCheck={false}
+                      autoCorrect={false}
                       value={this.state.user_name}
                     />
             </View>
           </View>
-          <View style={[styles.container, {backgroundColor: '#f0eee4'}]}>
+          <View style={styles.container}>
             <View style = {{flexDirection: 'row', justifyContent: "space-around"}}>
               <TouchableHighlight
                 style={styles.campusScreens}
@@ -130,8 +133,8 @@ export default class HomeV2 extends Component{
                   <Text style={styles.campusText}>Fitness</Text>
               </TouchableHighlight>
             </View>
-            <View style = {{flex: 1, zIndex: 5005}}>
-              <CampusContainer style = {{zIndex: 5000}} ref={navigatorRef => {
+            <View style = {{flex: 1}}>
+              <CampusContainer ref={navigatorRef => {
                 NavigationService.setCampusNavigator(navigatorRef);
               }}/>
             </View>
@@ -145,19 +148,17 @@ export default class HomeV2 extends Component{
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   backgroundColor: '#f8f9fa',
-   justifyContent: 'center'
+   justifyContent: 'center',
  },
  panel: {
    flex: 1,
-   backgroundColor: 'white',
-   borderTopRightRadius: 50,
-   borderTopLeftRadius: 50,
+   backgroundColor: 'rgb(250,250,250)',
+   borderTopRightRadius: 55,
+   borderTopLeftRadius: 55,
    position: 'relative'
  },
  panelHeader: {
    height: 100,
-   backgroundColor: '#003262',
    color: '#C4820F',
    borderTopRightRadius: 50,
    borderTopLeftRadius: 50,
@@ -165,10 +166,11 @@ const styles = StyleSheet.create({
    justifyContent: 'space-around'
  },
  slider: {
-   height: 5,
-   width: 30,
-   backgroundColor: 'white',
-   borderRadius: 20,
+   marginTop: 10,
+   height: 4,
+   width: 31,
+   backgroundColor: 'rgb(216,216,216)',
+   borderRadius: 2.5,
  },
  campusScreens:{
    marginRight: 40,
@@ -176,13 +178,18 @@ const styles = StyleSheet.create({
    marginTop: 10,
    paddingTop: 20,
    paddingBottom: 20,
-   backgroundColor: '#f0eee4',
+   backgroundColor: 'rgb(250,250,250)',
+ },
+ campusText: {
+   color: "rgb(98,97,98)",
+   fontSize: 15.75,
+   fontWeight: 'bold'
  },
  status: {
-   color: '#C4820F',
-   fontSize: 24,
+   color: 'rgb(44,44,44)',
+   fontSize: 28,
    paddingLeft: 30,
-   fontFamily: 'sans-serif-light',
-   letterSpacing: 3,
+   fontWeight: 'bold',
+   letterSpacing: 2,
  }
 })

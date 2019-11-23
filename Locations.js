@@ -110,13 +110,19 @@ export default class Locations extends Component{
 
 const styles = StyleSheet.create({
   infoContainer: {
-    width: "80%",
-    backgroundColor: "#f6f4f1",
-    borderRadius: 25,
+    width: "90%",
+    backgroundColor: "rgb(255,255,255)",
+    opacity: 0.96,
+    borderRadius: 12,
     marginTop: 10,
     padding: 20,
-    marginLeft: "9%",
-    alignItems: "center"
+    marginLeft: "5%",
+    alignItems: "center",
+    shadowColor: 'rgba(0,0,0,0.24)',
+    shadowOffset: { width: 0, height: -1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 2
   },
   infoHeader: {
     flexDirection: 'row',
@@ -125,14 +131,14 @@ const styles = StyleSheet.create({
   infoIcon: {
     width: 30,
     height: 30,
-    marginRight: 20
+    marginRight: 25
   },
   cardDeck: {
     marginTop: 40,
   },
   heading: {
-    fontSize: 20,
+    fontSize: 21,
     fontWeight: "bold",
-    letterSpacing: 1.1,
+    color: "rgb(44,44,45)"
   }
 })
