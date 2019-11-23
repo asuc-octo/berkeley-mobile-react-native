@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
     width: "88%",
     backgroundColor: "rgb(255,255,255)",
     borderRadius: 21.5,
-    elevation: 2,
   },
   pointsOfInterest: {
     position: "absolute",
