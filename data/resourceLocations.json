@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Food Pantry",
+    "categories": ["Health"],
+    "phone": "5105252280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Cal Student Central",
+    "categories": ["Academics"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "UCPD Berkeley",
+    "categories": ["Security"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Student Legal Services",
+    "categories": ["Legal"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Student Advocate Office",
+    "categories": ["Legal", "Academics"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Financial Aid Office",
+    "categories": ["Finances"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Financial Aid Office",
+    "categories": ["Finances"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Financial Aid Office",
+    "categories": ["Finances"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Financial Aid Office",
+    "categories": ["Finances"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+  {
+    "name": "Financial Aid Office",
+    "categories": ["Finances"],
+    "phone": "(510) 525-2280",
+    "website": "https://www.berkeleyfoodpantry.org/",
+    "image": "http://www.lib.berkeley.edu/sites/default/files/moffitt_library_0_0.jpg"
+  },
+]
