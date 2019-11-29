@@ -1,4 +1,4 @@
-package com.bm_react;
+package com.berkeleymobile;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "bm_react";
+    return "BerkeleyMobile";
   }
 }

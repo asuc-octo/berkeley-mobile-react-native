@@ -1,4 +1,4 @@
-package com.bm_react;
+package com.berkeleymobile;
 
 import android.app.Application;
 import android.content.Context;
