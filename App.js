@@ -21,7 +21,7 @@ const TabApp = createAppContainer(createMaterialTopTabNavigator(
             style = {{width: 20, height: 30}}
             source = {{uri: "https://cdn1.iconfinder.com/data/icons/navigation-7/32/house-01-512.png"}}
           />
-        )
+        ),
       }
     },
     Resources: {
@@ -50,6 +50,7 @@ const TabApp = createAppContainer(createMaterialTopTabNavigator(
   {
     initialRouteName: 'Home',
     tabBarPosition: 'bottom',
+    lazy: true,
     tabBarOptions: {
       showIcon: true,
       showLabel: false,
