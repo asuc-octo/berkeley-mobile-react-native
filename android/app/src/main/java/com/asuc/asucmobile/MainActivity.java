@@ -1,4 +1,4 @@
-package com.berkeleymobile;
+package com.asuc.asucmobile;
 
 import com.facebook.react.ReactActivity;
 

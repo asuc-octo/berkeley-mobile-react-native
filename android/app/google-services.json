@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "592064103331",
+    "firebase_url": "https://berkeley-mobile.firebaseio.com",
+    "project_id": "berkeley-mobile",
+    "storage_bucket": "berkeley-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592064103331:android:c7f6458a7c00236e",
+        "android_client_info": {
+          "package_name": "com.asuc.asucmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592064103331-oti8m2ibvlnpof822c1gqvte97vefshi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asuc.asucmobile",
+            "certificate_hash": "bd070f9626263936d08e4fab33f1c9ef376b7f05"
+          }
+        },
+        {
+          "client_id": "592064103331-g79atcukischekvbo4beomqrctf7pgte.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asuc.asucmobile",
+            "certificate_hash": "8301f5121fecc89e0f91c3f940c08cee00c9404c"
+          }
+        },
+        {
+          "client_id": "592064103331-me3pftluvnpdoe1v93lmsm66thblqicg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyPnhZ8eDZsVx9VtNpHqRo9lAaAcyNVpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592064103331-me3pftluvnpdoe1v93lmsm66thblqicg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "592064103331-73lugm9urcosj9uetcsk0bsno0lf5ek2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.asuc.ASUC"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

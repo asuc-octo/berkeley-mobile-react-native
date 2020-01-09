@@ -1,4 +1,4 @@
-package com.berkeleymobile;
+package com.asuc.asucmobile;
 
 import android.app.Application;
 import android.content.Context;

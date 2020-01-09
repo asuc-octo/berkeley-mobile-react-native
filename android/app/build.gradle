@@ -128,11 +128,16 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.berkeleymobile"
+        applicationId "com.asuc.asucmobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+    }
+
+    lintOptions {
+       warning 'InvalidPackage', 'MissingPermission'
     }
     splits {
         abi {
@@ -178,7 +183,19 @@ android {
     }
 }
 
+buildscript {
+  dependencies {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    classpath 'com.google.gms:google-services:4.2.0'
+  }
+}
+
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
@@ -199,3 +216,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply plugin: 'com.google.gms.google-services'

@@ -33,6 +33,7 @@ const CampusStack = createAnimatedSwitchNavigator(
   },
   {
     initialRouteName: 'Libraries',
+    resetOnBlur: false,
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
       <Transition.Together>

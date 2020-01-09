@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-
+import {GOOGLE_API_KEY as key} from './secret.json'
 
 import LocationCard from './LocationCard';
 
@@ -10,43 +10,40 @@ export default class Locations extends Component{
   constructor(props) {
     super(props);
 
-    this.state = {filters: this.props.filters, data: this.props.data }
+    this.state = {filters: this.props.filters, data: [] }
 
     this.addDistance = this.addDistance.bind(this);
     this.sortDataByDistance = this.sortDataByDistance.bind(this)
     this.sortDataByOccupancy = this.sortDataByOccupancy.bind(this)
     this.filterData = this.filterData.bind(this)
 
-    this.addDistance();
+    if(this.props.data) {
+      this.setState({data: this.props.data})
+      this.addDistance();
+    }
+    else {
+      this.props.prepareData().then(result=> {
+          this.setState({data: result})
+          this.addDistance();
+        })
+    }
   }
 
   addDistance = () => {
-    distance = (lat1, lon1, lat2, lon2) => {
-      if ((lat1 == lat2) && (lon1 == lon2)) {
-        return 0;
-      }
-      else {
-        var radlat1 = Math.PI * lat1/180;
-        var radlat2 = Math.PI * lat2/180;
-        var theta = lon1-lon2;
-        var radtheta = Math.PI * theta/180;
-        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-        if (dist > 1) {
-          dist = 1;
-        }
-        dist = Math.acos(dist);
-        dist = dist * 180/Math.PI;
-        dist = dist * 60 * 1.1515;
-        return dist / 0.05167;
-      }
+    let distance = (lat1, lon1, lat2, lon2) => {
+      fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${lat1},${lon1}&destination=${lat2},${lon2}&mode=walking&key=${key}`)
+        .then(result=> {
+          
+        })
     };
 
     Geolocation.getCurrentPosition(location => {
-      this.props.data.map(element => {
+      let tempData = this.state.data
+      tempData.map(element => {
         element.distance = distance(element.latitude, element.longitude, location.coords.latitude, location.coords.longitude)
         return element
       })
-      this.setState({data: this.props.data })
+      this.setState({data: tempData })
       this.sortDataByDistance()
     });
   }

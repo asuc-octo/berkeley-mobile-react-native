@@ -13,12 +13,6 @@ export default class Resources extends Component {
   }
 
   render() {
-    // {this.state.data.map((prop, key) => {
-      //   return (
-        //     <LocationCard style={styles.card} sortDistance = {this.sortDataByDistance} sortOccupancy = {this.sortDataByOccupancy} key={key} data = {prop}/>
-        //   );
-        // })}
-        // <ScrollView  contentContainerStyle={{flexGrow: 0.8, justifyContent: "center"}}>
     return(
         <View style = {styles.container}>
           <View style = {styles.headingContainer}>
